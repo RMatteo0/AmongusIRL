@@ -1,0 +1,105 @@
+nav ul {
+  background-color: #454D54;
+  margin: 0;                              /* La position vers le haut de la barre */
+  padding: 0;
+  /*padding-top: 10px;                      /*Je défini la hauteur en plus de ma barre de navigation */
+  /*padding-bottom: 10px;                   /*Je défini la largeur en plus de ma barre de navigation */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);  /* Ajoute de l'ombre */
+  overflow-x: auto;             /* scroll horizontal si trop d'éléments */
+  list-style-type: none;
+  font-size: 20px;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+nav li {
+  float: left;                            /* Ils doivent s'aligner horizontalement */
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: red;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+body {
+  background-color: #120807; 
+}
+
+body p{
+  color : white;
+  font-size: 20px;
+}
+
+body h1{
+  color : black;
+  font-size: 30px;
+  background-color: white;
+  padding: 14px 16px;
+}
+
+body h2{
+  color : white;
+  font-size: 30px;
+  background-color: #454D54;
+  padding: 14px 16px;
+}
+
+body h3{
+  color : white;
+  font-size: 25px;
+  background-color: #4D1D1D;
+  padding: 10px 12px;
+}
+
+body h4{
+  color : black;
+  font-size: 30px;
+  background-color: #6AC4C4;
+  padding: 14px 16px;
+}
+
+body h5{
+  color : white;
+  font-size: 18px;
+}
+
+body h6{
+  color : white;
+  font-size: 30px;
+  background-color: #940303;
+  padding: 14px 16px;
+}
+
+body li{
+  color : white;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+.contenu {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.checkable input {
+  margin-left: 8px;         /* espace entre texte et case */
+  vertical-align: middle;   /* centrer la case avec le texte */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;          /* curseur pointer sur la case */
+}
+
+.checkable {
+  font-size: 18px;          /* taille du texte */
+  display: inline-block;    /* texte et case sur la même ligne */
+  user-select: none;        /* empêcher la sélection involontaire du texte */
+  color: white;
+}
+
+.checkable.checked {
+  color: green;             /* texte devient vert si cochée */
+  font-weight: bold;        /* optionnel */
+}

@@ -40,6 +40,24 @@
 		<h3> Les insultes : </h3>
 		<h5> Pour ce qui est des insultes nous ne sommes pas des singes donc on insultes pas les mamans et les soeurs (Oui même celles de maxences) pour le reste on s'en fout en vrai tant que ce n'est pas pour tricher... </h5>
 		</div>
-	<script src="Java.js"></script>
+		<script type="module">
+		  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+		  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+		  const firebaseConfig = {
+			apiKey: "AIzaSyB5SveP0dDPE6gOJYGcATSJjJIkpVegBAI",
+			authDomain: "amongus-irl-ae832.firebaseapp.com",
+			databaseURL: "https://amongus-irl-ae832-default-rtdb.europe-west1.firebasedatabase.app/",
+			projectId: "amongus-irl-ae832",
+			storageBucket: "amongus-irl-ae832.firebasestorage.app",
+			messagingSenderId: "190130772923",
+			appId: "1:190130772923:web:5202db1cd62f775f77029e"
+			};
+
+			const app = initializeApp(firebaseConfig);
+			const database = getDatabase(app);
+			window.db = database; // optionnel, pour utiliser db dans Java.js
+		</script>
+		<script src="Java.js"></script>
 	</body>
 </html>

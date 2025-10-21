@@ -67,15 +67,11 @@
 		<img src="img/Ex9.png" alt= "L'extérieur">
 		<h3> Les commandes (à cacher des autres joueurs) </h3>
 		<img src="Image/Kill2.png" alt= "Kill">
-		<button id="chrono60-btn" style="margin:10px; padding:10px; font-size:16px;">
-		  Démarrer chrono 60s
-		</button>
-		<audio id="chrono60-sound" src="Kill.mp3"></audio>
+		<button id="chrono60" style="margin:10px; padding:10px 20px; font-size:18px;">Chrono 60s</button>
+		<audio id="sound-60" src="Kill.mp3" preload="auto"></audio>
 		<img src="Image/Vent_Imposteur4.png" alt= "Vent">
-		<button id="chrono-btn" style="font-size:20px; font-weight:bold; padding:10px 20px;">
-		  Démarrer le chrono
-		</button>
-		<audio id="chrono-sound" src="Vent.mp3"></audio>
+		<button id="chrono30" style="margin:10px; padding:10px 20px; font-size:18px;">Chrono 30s</button>
+		<audio id="sound-30" src="Vent.mp3" preload="auto"></audio>
 		<script type="module">
 		  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 		  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
@@ -94,15 +90,36 @@
 			const database = getDatabase(app);
 			window.db = database; // optionnel, pour utiliser db dans Java.js
 		</script>
-		<!-- Boutons Chronomètres -->
-		<div style="text-align:center; margin-top:20px;">
-		  <button id="btn-chrono-30" style="padding:10px 20px; margin:10px;">Démarrer (30s)</button>
-		  <button id="btn-chrono-60" style="padding:10px 20px; margin:10px;">Démarrer (60s)</button>
-		</div>
+		<script>
+			function setupChrono(buttonId, soundId, duration) {
+			const button = document.getElementById(buttonId);
+			const sound = document.getElementById(soundId);
+			let interval;
 
-		<!-- Sons -->
-		<audio id="sound-30" src="Vent.mp3" preload="auto"></audio>
-		<audio id="sound-60" src="Kill.mp3" preload="auto"></audio>
+			button.addEventListener("click", () => {
+				clearInterval(interval); // stoppe un éventuel ancien chrono
+				let timeLeft = duration;
+				button.disabled = true;
+				button.textContent = `${timeLeft}s`;
+				sound.currentTime = 0;
+				sound.play().catch(err => console.log("Autoplay bloqué :", err));
+
+				interval = setInterval(() => {
+				timeLeft--;
+				button.textContent = `${timeLeft}s`;
+				if (timeLeft <= 0) {
+					clearInterval(interval);
+					button.disabled = false;
+					button.textContent = `Chrono ${duration}s`;
+				}
+				}, 1000);
+			});
+			}
+
+			// ⚙️ Initialisation des deux chronos
+			setupChrono("chrono30", "sound-30", 30);
+			setupChrono("chrono60", "sound-60", 60);
+		</script>
 		<script type="module" src="./Java.js"></script>
 		</div>
 	</body>

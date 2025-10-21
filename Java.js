@@ -85,3 +85,17 @@ checkboxes.forEach(cb => {
     }
   });
 });
+
+let secondes = 30;
+
+function updateChronometre() {
+  if (secondes >= 0) {
+    document.getElementById("chronometre").textContent = `${secondes}s`;
+    secondes--;
+  } else {
+    clearInterval(timer); // Arrête le chronomètre à 0
+  }
+}
+
+// Lancer le chronomètre
+const timer = setInterval(updateChronometre, 1000);

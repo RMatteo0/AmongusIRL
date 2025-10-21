@@ -123,3 +123,43 @@ function createChrono(buttonId, soundId, totalSeconds) {
 // --- Création des deux chronos ---
 createChrono("chrono30-btn", "chrono30-sound", 30);
 createChrono("chrono60-btn", "chrono60-sound", 60);
+
+
+
+
+
+// --- CHRONOMÈTRE GÉNÉRALISÉ ---
+function startChrono(button, duration, sound) {
+  let timeLeft = duration;
+  button.disabled = true;
+  button.textContent = `${timeLeft}s`;
+  sound.currentTime = 0;
+  sound.play().catch(() => {
+    console.warn("Le son n'a pas pu être lu automatiquement (navigateur)");
+  });
+
+  const countdown = setInterval(() => {
+    timeLeft--;
+    button.textContent = `${timeLeft}s`;
+
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      button.disabled = false;
+      button.textContent = `Démarrer (${duration}s)`;
+    }
+  }, 1000);
+}
+
+// --- BOUTON 30s ---
+const btn30 = document.getElementById("btn-chrono-30");
+const sound30 = document.getElementById("sound-30");
+if (btn30 && sound30) {
+  btn30.addEventListener("click", () => startChrono(btn30, 30, sound30));
+}
+
+// --- BOUTON 60s ---
+const btn60 = document.getElementById("btn-chrono-60");
+const sound60 = document.getElementById("sound-60");
+if (btn60 && sound60) {
+  btn60.addEventListener("click", () => startChrono(btn60, 60, sound60));
+}

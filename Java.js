@@ -87,15 +87,24 @@ checkboxes.forEach(cb => {
 });
 
 let secondes = 30;
+let timer; // variable pour setInterval
 
-function updateChronometre() {
-  if (secondes >= 0) {
-    document.getElementById("chronometre").textContent = `${secondes}s`;
+const btn = document.getElementById("chrono-btn");
+
+btn.addEventListener("click", () => {
+  if (timer) return; // empêche de lancer plusieurs fois
+
+  // Mettre à jour le texte du bouton
+  btn.textContent = `${secondes}s`;
+
+  timer = setInterval(() => {
     secondes--;
-  } else {
-    clearInterval(timer); // Arrête le chronomètre à 0
-  }
-}
-
-// Lancer le chronomètre
-const timer = setInterval(updateChronometre, 1000);
+    if (secondes >= 0) {
+      btn.textContent = `${secondes}s`;
+    } else {
+      clearInterval(timer);
+      timer = null;
+      btn.textContent = "Temps écoulé"; // ou "Démarrer le chrono" si tu veux recommencer
+    }
+  }, 1000);
+});

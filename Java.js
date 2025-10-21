@@ -16,19 +16,39 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// --- RÉCUPÉRATION DES CHECKBOXES ---
+// Sélectionne toutes les cases de la page
 const checkboxes = document.querySelectorAll('input[type="checkbox"][data-key]');
 const progressBar = document.getElementById('progress-bar');
+const progressText = document.getElementById('progress-text'); // 👈 affichage du pourcentage
 
-// Fonction qui met à jour la barre
-function updateProgressBar() {
-  const total = checkboxes.length;
-  const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
-  const percent = total > 0 ? (checked / total) * 100 : 0;
-  if (progressBar) progressBar.style.width = percent + "%";
+// --- Fonction pour mettre à jour la barre de progression globale ---
+async function updateGlobalProgressBar() {
+  try {
+    const snapshot = await get(ref(db, 'checkboxes'));
+    if (snapshot.exists()) {
+      const all = snapshot.val();
+
+      // On ne prend que les cases 1 → 48
+      const filteredKeys = Object.keys(all).filter(k => {
+        const num = parseInt(k.replace('case', ''));
+        return num >= 1 && num <= 48;
+      });
+
+      const filteredValues = filteredKeys.map(k => all[k]);
+      const total = filteredValues.length;
+      const checkedCount = filteredValues.filter(v => v === true).length;
+      const percent = total > 0 ? (checkedCount / total) * 100 : 0;
+
+      // Met à jour la barre et le texte
+      if (progressBar) progressBar.style.width = percent + "%";
+      if (progressText) progressText.textContent = `${percent.toFixed(0)}%`;
+    }
+  } catch (err) {
+    console.error("Erreur de mise à jour de la barre :", err);
+  }
 }
 
-// Charger l'état des cases depuis Firebase
+// --- Charger les cases depuis Firebase ---
 async function loadCheckboxes() {
   const dbRef = ref(db);
   for (const cb of checkboxes) {
@@ -43,19 +63,19 @@ async function loadCheckboxes() {
       console.error("Erreur de chargement Firebase :", error);
     }
   }
-  updateProgressBar();
+  updateGlobalProgressBar();
 }
 
-// Sauvegarder quand une case change
+// --- Quand une case change ---
 checkboxes.forEach(cb => {
   cb.addEventListener('change', async () => {
     const key = cb.dataset.key;
     await set(ref(db, 'checkboxes/' + key), cb.checked);
     if (cb.checked) cb.parentElement.classList.add('checked');
     else cb.parentElement.classList.remove('checked');
-    updateProgressBar();
+    updateGlobalProgressBar();
   });
 });
 
-// Charger au démarrage
+// --- Charger au démarrage ---
 loadCheckboxes();

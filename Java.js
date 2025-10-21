@@ -86,34 +86,40 @@ checkboxes.forEach(cb => {
   });
 });
 
-let totalSecondes = 30;  // Durée du chrono
-let secondes = totalSecondes;
-let timer = null;
+// --- CHRONOMÈTRES ---
+// Fonction générique pour créer un chrono réutilisable
+function createChrono(buttonId, soundId, totalSeconds) {
+  let secondes = totalSeconds;
+  let timer = null;
 
-const btn = document.getElementById("chrono-btn");
-const sound = document.getElementById("chrono-sound"); // le son
+  const btn = document.getElementById(buttonId);
+  const sound = document.getElementById(soundId);
 
-btn.addEventListener("click", () => {
-  if (timer) return; // empêche plusieurs timers
+  btn.addEventListener("click", () => {
+    if (timer) return; // Empêche plusieurs démarrages
 
-  // ▶️ Joue le son au démarrage
-  if (sound) {
-    sound.currentTime = 0; // recommence au début
-    sound.play().catch(err => console.warn("Lecture bloquée :", err));
-  }
+    // ▶️ Joue le son au début
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play().catch(err => console.warn("Lecture bloquée :", err));
+    }
 
-  // Met à jour immédiatement le texte du bouton
-  btn.textContent = `${secondes}s`;
-
-  timer = setInterval(() => {
-    secondes--;
     btn.textContent = `${secondes}s`;
 
-    if (secondes <= 0) {
-      clearInterval(timer);
-      timer = null;
-      secondes = totalSecondes;
-      btn.textContent = "Démarrer le chrono";
-    }
-  }, 1000);
-});
+    timer = setInterval(() => {
+      secondes--;
+      btn.textContent = `${secondes}s`;
+
+      if (secondes <= 0) {
+        clearInterval(timer);
+        timer = null;
+        secondes = totalSeconds;
+        btn.textContent = `Démarrer chrono ${totalSeconds}s`;
+      }
+    }, 1000);
+  });
+}
+
+// --- Création des deux chronos ---
+createChrono("chrono30-btn", "chrono30-sound", 30);
+createChrono("chrono60-btn", "chrono60-sound", 60);

@@ -91,11 +91,18 @@ let secondes = totalSecondes;
 let timer = null;
 
 const btn = document.getElementById("chrono-btn");
+const sound = document.getElementById("chrono-sound"); // le son
 
 btn.addEventListener("click", () => {
-  if (timer) return; // empêche de lancer plusieurs timers en même temps
+  if (timer) return; // empêche plusieurs timers
 
-  // Mettre à jour immédiatement le texte du bouton
+  // ▶️ Joue le son au démarrage
+  if (sound) {
+    sound.currentTime = 0; // recommence au début
+    sound.play().catch(err => console.warn("Lecture bloquée :", err));
+  }
+
+  // Met à jour immédiatement le texte du bouton
   btn.textContent = `${secondes}s`;
 
   timer = setInterval(() => {
@@ -105,8 +112,8 @@ btn.addEventListener("click", () => {
     if (secondes <= 0) {
       clearInterval(timer);
       timer = null;
-      secondes = totalSecondes; // reset pour relancer le chrono
-      btn.textContent = "Démarrer le chrono"; // texte réinitialisé
+      secondes = totalSecondes;
+      btn.textContent = "Démarrer le chrono";
     }
   }, 1000);
 });

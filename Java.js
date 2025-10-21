@@ -86,25 +86,27 @@ checkboxes.forEach(cb => {
   });
 });
 
-let secondes = 30;
-let timer; // variable pour setInterval
+let totalSecondes = 30;  // Durée du chrono
+let secondes = totalSecondes;
+let timer = null;
 
 const btn = document.getElementById("chrono-btn");
 
 btn.addEventListener("click", () => {
-  if (timer) return; // empêche de lancer plusieurs fois
+  if (timer) return; // empêche de lancer plusieurs timers en même temps
 
-  // Mettre à jour le texte du bouton
+  // Mettre à jour immédiatement le texte du bouton
   btn.textContent = `${secondes}s`;
 
   timer = setInterval(() => {
     secondes--;
-    if (secondes >= 0) {
-      btn.textContent = `${secondes}s`;
-    } else {
+    btn.textContent = `${secondes}s`;
+
+    if (secondes <= 0) {
       clearInterval(timer);
       timer = null;
-      btn.textContent = "Temps écoulé"; // ou "Démarrer le chrono" si tu veux recommencer
+      secondes = totalSecondes; // reset pour relancer le chrono
+      btn.textContent = "Démarrer le chrono"; // texte réinitialisé
     }
   }, 1000);
 });

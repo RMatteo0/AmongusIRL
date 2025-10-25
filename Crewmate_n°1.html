@@ -55,6 +55,12 @@
 		  <div id="progress-bar" style="background:green; width:0%; height:100%; border-radius:5px; transition:width 0.5s;"></div>
 		</div>
 		<p id="progress-text" style="color:white; text-align:center; font-weight:bold;">0%</p>
+		<img src="Image/Bouton1.png" alt= "Bouton">
+		<button id="chrono62" style="margin:10px; padding:10px 20px; font-size:18px;">Seulement au salon</button>
+		<audio id="sound-62" src="Reunion1min.mp3" preload="auto"></audio>
+		<img src="Image/Corps.png" alt= "Corps">
+		<button id="chrono59" style="margin:10px; padding:10px 20px; font-size:18px;">Réunion</button>
+		<audio id="sound-59" src="Reunion1min.mp3" preload="auto"></audio>
 		<h3> La Map : </h3>
 		<h5> Le rez de chaussée : </h5>
 		<img src="map/Rdc.png" alt= "Le rez de chaussée">
@@ -81,6 +87,36 @@
 			const app = initializeApp(firebaseConfig);
 			const database = getDatabase(app);
 			window.db = database; // optionnel, pour utiliser db dans Java.js
+		</script>
+		<script>
+			function setupChrono(buttonId, soundId, duration) {
+			const button = document.getElementById(buttonId);
+			const sound = document.getElementById(soundId);
+			let interval;
+
+			button.addEventListener("click", () => {
+				clearInterval(interval); // stoppe un éventuel ancien chrono
+				let timeLeft = duration;
+				button.disabled = true;
+				button.textContent = `${timeLeft}s`;
+				sound.currentTime = 0;
+				sound.play().catch(err => console.log("Autoplay bloqué :", err));
+
+				interval = setInterval(() => {
+				timeLeft--;
+				button.textContent = `${timeLeft}s`;
+				if (timeLeft <= 0) {
+					clearInterval(interval);
+					button.disabled = false;
+					button.textContent = `Chrono ${duration}s`;
+				}
+				}, 1000);
+			});
+			}
+
+			// ⚙️ Initialisation des deux chronos
+			setupChrono("chrono59", "sound-59", 59);
+			setupChrono("chrono62", "sound-62", 62);
 		</script>
 		<script type="module" src="./Java.js"></script>
 		</div>

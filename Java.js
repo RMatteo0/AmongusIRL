@@ -30,22 +30,38 @@ const progressText = document.getElementById('progress-text'); // si présent
 
 // Fonction qui calcule le pourcentage sur les clés 1→53 et met à jour UI
 function applyGlobalProgress(allObj) {
-  // allObj = objet snapshot.val() ou {} si vide
   const all = allObj || {};
   const filteredKeys = Object.keys(all).filter(k => {
-    const m = k.match(/(\d+)$/);               // extraire nombre à la fin
+    const m = k.match(/(\d+)$/);
     if (!m) return false;
     const num = parseInt(m[1], 10);
     return num >= 1 && num <= 53;
   });
 
   const filteredValues = filteredKeys.map(k => all[k]);
-  const total = filteredKeys.length; // normalement 53 si toutes existent
+  const total = filteredKeys.length;
   const checkedCount = filteredValues.filter(v => v === true).length;
   const percent = total > 0 ? (checkedCount / total) * 100 : 0;
 
   if (progressBar) progressBar.style.width = percent + "%";
-  if (progressText) progressText.textContent = `${percent.toFixed(0)}%`;
+
+  if (progressText) {
+    if (percent >= 100) {
+      progressText.textContent = "Les Crewmates ont gagné !";
+
+      // 🔊 Joue le son de victoire (une seule fois)
+      const winSound = document.getElementById("win-sound");
+      if (winSound && !winSound.dataset.played) {
+        winSound.play().catch(err => console.warn("Lecture du son bloquée :", err));
+        winSound.dataset.played = "true"; // évite de rejouer plusieurs fois
+      }
+
+    } else {
+      progressText.textContent = `${percent.toFixed(0)}%`;
+      const winSound = document.getElementById("win-sound");
+      if (winSound) delete winSound.dataset.played; // réinitialise si on repasse sous 100%
+    }
+  }
 }
 
 // Met à jour l'état des checkboxes visibles à partir de allObj

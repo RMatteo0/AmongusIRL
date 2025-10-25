@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="Css.css">
-		<title> Coéquipier n°5 </title>
+		<title> Shérif </title>
 	</head>
 	<body>
 		<nav>
@@ -24,42 +24,17 @@
 			</ul>
 		</nav>
 		<div class="contenu">
-		<h1> Coéquipier n°5 :</h1>
-		<h5> Réparez le vaisseau en réalisant vos tâches pour gagner la partie mais attention aux imposteurs qui essayerons de vous tuer ! Soyez attentifs ! </h5>
-		<h3> Tes quêtes </h3>
-		<div id="checkboxes-container">
-			<label class="checkable">
-			<input type="checkbox" data-key="case25">
-			<p>Chambre Mattéo / Refaire les paires de chaussettes</p>
-		</label><br>
-		<label class="checkable">
-			<input type="checkbox" data-key="case26">
-			<p>Table à manger / Exos de maths à faire à ma place</p>
-		</label><br>
-		<label class="checkable">
-			<input type="checkbox" data-key="case27">
-			<p>Garage extérieur / les fils</p>
-		</label><br>
-		<label class="checkable">
-			<input type="checkbox" data-key="case28">
-			<p>Grange / Empiler des buches pour faire un château</p>
-		</label><br>
-		<label class="checkable">
-			<input type="checkbox" data-key="case29">
-			<p>Pièce poker / Quête du poker</p>
-		</label><br>
-		<label class="checkable">
-			<input type="checkbox" data-key="case30">
-			<p>Entrée / Écoute la vidéo sans rigoler</p>
-		</label><br>
-		<label class="checkable">
-			<input type="checkbox" data-key="case51">
-			<p>Salle de jeux / Devinette</p>
-		</label><br>
-		</div>
+		<h1> Shérif :</h1>
+		<h5> Ce rôle est une extention de votre rôle de base, vous pouvez donc consulter leurs deux pages respectives: En plus de pouvoir réaliser vos quêtes, il vous permet quand vous le voulez de tirez sur quelqu'un à l'aide du pistolet du shérif. </h5>
+		<h5> Vous pouvez alors demmander à la personne son rôle dans le cas ou elle est imposteur, elle meurt dans le cas contraire vous mourrez tout les deux et le pistolet tombe à terre et peut être ramassé par un autre coéquipier.</h5>
+		<h5> Attention ! Seul les coéquipiers et les ingénieurs peuvent utiliser cette extention les imposteurs y sont interdits ! </h5>
 		<div id="progress-container" style="background:#555; width:100%; height:30px; border-radius:5px; margin-bottom:10px;">
 		  <div id="progress-bar" style="background:green; width:0%; height:100%; border-radius:5px; transition:width 0.5s;"></div>
 		</div>
+		<img src="Image/Etoile.png" alt= "Etoile">
+		<button id="chrono60" style="margin:10px; padding:10px 20px; font-size:18px;">Chrono 60s avant de pouvoir re tirer</button>
+		<audio id="sound-60" src="Revolver.mp3" preload="auto"></audio>
+		<br>
 		<p id="progress-text" style="color:white; text-align:center; font-weight:bold;">0%</p>
 		<img src="Image/Bouton1.png" alt= "Bouton">
 		<button id="chrono62" style="margin:10px; padding:10px 20px; font-size:18px;">Seulement au salon</button>
@@ -122,6 +97,7 @@
 
 			// ⚙️ Initialisation des deux chronos
 			setupChrono("chrono59", "sound-59", 59);
+			setupChrono("chrono60", "sound-60", 60);
 			setupChrono("chrono62", "sound-62", 62);
 		</script>
 		<script type="module" src="./Java.js"></script>

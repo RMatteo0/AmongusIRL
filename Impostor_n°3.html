@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="Css.css">
-		<title> Coéquipier n°4 </title>
+		<title> Imposteur n°3 </title>
 	</head>
 	<body>
 		<nav>
@@ -23,37 +23,38 @@
 			</ul>
 		</nav>
 		<div class="contenu">
-		<h1> Coéquipier n°4 :</h1>
-		<h5> Réparez le vaisseau en réalisant vos tâches pour gagner la partie mais attention aux imposteurs qui essayerons de vous tuer ! Soyez attentifs ! </h5>
+		<h6> Imposteur n°3 :</h6>
+		<h5> Votre but est de saboter le vaisseau et d'éliminer les membres de l'équipage sans vous faire repérer. Trahissez, manipulez pour arriver à vos fins seul le résultat compte ! </h5>
+		<h5> Particularité du rôle vous avez accès au conduits pour vous déplacer plus rapidement ainsi qu'à un couteau et un pistolet pour tuer les membre de l'équipage. </h5>
 		<h3> Tes quêtes </h3>
 		<div id="checkboxes-container">
 			<label class="checkable">
-			<input type="checkbox" data-key="case19">
-			<p>Veranda / Faire 3 battle flip sur la table ronde</p>
+			<input type="checkbox" data-key="case112">
+			<p>Chambre Mattéo / Refaire les paires de chaussettes</p>
 		</label><br>
 		<label class="checkable">
-			<input type="checkbox" data-key="case20">
-			<p>alle de muscu / Faire 30 rep de l'exo de ton choix sur la machine</p>
+			<input type="checkbox" data-key="case113">
+			<p>Table à manger / Exos de maths à faire à ma place</p>
 		</label><br>
 		<label class="checkable">
-			<input type="checkbox" data-key="case21">
-			<p>Cuisine / Coktail boire et deviner </p>
+			<input type="checkbox" data-key="case114">
+			<p>Garage extérieur / les fils </p>
 		</label><br>
 		<label class="checkable">
-			<input type="checkbox" data-key="case22">
-			<p>Allée 1 / Retrouve l'aguille dans la botte de foin</p>
+			<input type="checkbox" data-key="case115">
+			<p>Grange / Empiler des buches pour faire un château</p>
 		</label><br>
 		<label class="checkable">
-			<input type="checkbox" data-key="case23">
-			<p>Cour / Enchaine dix Jongles avec la partie de ton corps au choix</p>
+			<input type="checkbox" data-key="case116">
+			<p>Pièce poker / Quête du poker</p>
 		</label><br>
 		<label class="checkable">
-			<input type="checkbox" data-key="case24">
-			<p>Cellier / Résoudre le où est charlie</p>
+			<input type="checkbox" data-key="case117">
+			<p>Entrée / Écoute la vidéo sans rigoler</p>
 		</label>
 		<label class="checkable">
-			<input type="checkbox" data-key="case50">
-			<p>Salle de bain / Devinette</p>
+			<input type="checkbox" data-key="case119">
+			<p>Salle de jeux / Devinette</p>
 		</label><br>
 		</div>
 		<div id="progress-container" style="background:#555; width:100%; height:30px; border-radius:5px; margin-bottom:10px;">
@@ -75,6 +76,16 @@
 		<img src="map/grenier4.png" alt= "Le grenier">
 		<h5> L'extérieur : </h5>
 		<img src="map/Dehors2.png" alt= "L'extérieur">
+		<h3> Les commandes (à cacher des autres joueurs) </h3>
+		<img src="Image/Sabotage.png" alt= "Sabotage">
+		<button id="chrono61" style="margin:10px; padding:10px 20px; font-size:18px;">Chrono 60s</button>
+		<audio id="sound-61" src="Alarme1min.mp3" preload="auto"></audio>
+		<img src="Image/Kill2.png" alt= "Kill">
+		<button id="chrono60" style="margin:10px; padding:10px 20px; font-size:18px;">Chrono 60s</button>
+		<audio id="sound-60" src="Kill.mp3" preload="auto"></audio>
+		<img src="Image/Vent_Imposteur4.png" alt= "Vent">
+		<button id="chrono30" style="margin:10px; padding:10px 20px; font-size:18px;">Chrono 30s</button>
+		<audio id="sound-30" src="Vent.mp3" preload="auto"></audio>
 		<script type="module">
 		  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 		  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
@@ -120,7 +131,10 @@
 			}
 
 			// ⚙️ Initialisation des deux chronos
+			setupChrono("chrono30", "sound-30", 30);
 			setupChrono("chrono59", "sound-59", 59);
+			setupChrono("chrono60", "sound-60", 60);
+			setupChrono("chrono61", "sound-61", 61);
 			setupChrono("chrono62", "sound-62", 62);
 		</script>
 		<script type="module" src="./Java.js"></script>

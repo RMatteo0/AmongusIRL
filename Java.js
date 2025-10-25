@@ -28,7 +28,7 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"][data-key]')
 const progressBar = document.getElementById('progress-bar');
 const progressText = document.getElementById('progress-text'); // si présent
 
-// Fonction qui calcule le pourcentage sur les clés 1→48 et met à jour UI
+// Fonction qui calcule le pourcentage sur les clés 1→53 et met à jour UI
 function applyGlobalProgress(allObj) {
   // allObj = objet snapshot.val() ou {} si vide
   const all = allObj || {};
@@ -36,11 +36,11 @@ function applyGlobalProgress(allObj) {
     const m = k.match(/(\d+)$/);               // extraire nombre à la fin
     if (!m) return false;
     const num = parseInt(m[1], 10);
-    return num >= 1 && num <= 48;
+    return num >= 1 && num <= 53;
   });
 
   const filteredValues = filteredKeys.map(k => all[k]);
-  const total = filteredKeys.length; // normalement 48 si toutes existent
+  const total = filteredKeys.length; // normalement 53 si toutes existent
   const checkedCount = filteredValues.filter(v => v === true).length;
   const percent = total > 0 ? (checkedCount / total) * 100 : 0;
 

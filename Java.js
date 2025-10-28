@@ -28,14 +28,14 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"][data-key]')
 const progressBar = document.getElementById('progress-bar');
 const progressText = document.getElementById('progress-text'); // si présent
 
-// Fonction qui calcule le pourcentage sur les clés 1→53 et met à jour UI
+// Fonction qui calcule le pourcentage sur les clés 1→41 et met à jour UI
 function applyGlobalProgress(allObj) {
   const all = allObj || {};
   const filteredKeys = Object.keys(all).filter(k => {
     const m = k.match(/(\d+)$/);
     if (!m) return false;
     const num = parseInt(m[1], 10);
-    return num >= 1 && num <= 53;
+    return num >= 1 && num <= 41;
   });
 
   const filteredValues = filteredKeys.map(k => all[k]);

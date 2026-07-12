@@ -2,84 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="Css.css">
+		<link rel="stylesheet" href="New CSS Entrée.css">
 		<title> Ecran d'accueil </title>
 	</head>
 	<body>
-			<nav>
-				<ul>
-					<li> <a href="./index.html">Page d'acceuil</a> </li>
-					<li> <a href="./Crewmate_n°1.html">Crew1</a> </li>
-					<li> <a href="./Crewmate_n°2.html">Crew2</a> </li>
-					<li> <a href="./Crewmate_n°3.html">Crew3</a> </li>
-					<li> <a href="./Crewmate_n°4.html">Crew4</a> </li>
-					<li> <a href="./Crewmate_n°5.html">Crew5</a> </li>
-					<li> <a href="./Crewmate_n°6.html">Crew6</a> </li>
-					<li> <a href="./Ingineer_n°1.html">Ing1</a> </li>
-					<li> <a href="./Ingineer_n°2.html">Ing2</a> </li>
-					<li> <a href="./Impostor_n°1.html">Imp1</a>  </li>
-					<li> <a href="./Impostor_n°2.html">Imp2</a> </li>
-					<li> <a href="./Impostor_n°3.html">Imp3</a> </li>
-					<li> <a href="./Sherif.html">Shérif</a> </li>
-				</ul>
-			</nav>
-		<div class="contenu">
-		<h2> Avancement des quêtes </h2>
-		<div id="progress-container" style="background:#555; width:100%; height:30px; border-radius:5px; margin-bottom:10px;">
-		  <div id="progress-bar" style="background:green; width:0%; height:100%; border-radius:5px; transition:width 0.5s;"></div>
-		</div>
-		<p id="progress-text" style="color:white; text-align:center; font-weight:bold;">0%</p>
-		<audio id="win-sound" src="Victoire.mp3" preload="auto"></audio>
-		<h2>La map</h2>
-		<h5> Le rez de chaussée : </h5>
-		<img src="map/Rdc.png" alt= "Le rez de chaussée">
-		<h5> Le premier étage : </h5>
-		<img src="map/1er-étage3.png" alt= "Le premier étage">
-		<h5> Le grenier : </h5>
-		<img src="map/grenier4.png" alt= "Le grenier">
-		<h5> L'extérieur : </h5>
-		<img src="map/Dehors2.png" alt= "L'extérieur">
-		<h2> Les règles : </h2>
-		<h3> Les rôles : </h3>
-		<h5> Dans la partie plusieurs rôles sont disponibles avec des effets propres à chacun : </h5>
-		<li> <h5> Les coéquipiers : </h5> </li>
-		<h5> Réparez le vaisseau en réalisant vos tâches pour gagner la partie mais attention aux imposteurs qui essayerons de vous tuer ! Soyez attentifs ! </h5>
-		<li> <h5> Les ingénieurs : </h5> </li>
-		<h5> Réparez le vaisseau en réalisant vos tâches pour gagner la partie mais attention aux imposteurs qui essayerons de vous tuer ! Soyez attentifs ! </h5>
-		<h5> Particularité du rôle, tout comme les imposteurs vous avez accès au conduits faites en bon usage pour réaliser vos taches ! </h5>
-		<li> <h5> Les imposteurs : </h5> </li>
-		<h5> Votre but est de saboter le vaisseau et d'éliminer les membres de l'équipage sans vous faire repérer. Trahissez, manipulez pour arriver à vos fins seul le résultat compte ! </h5>
-		<h5> Particularité du rôle vous avez accès au conduits pour vous déplacer plus rapidement ainsi qu'à un couteau et un pistolet pour tuer les membre de l'équipage. </h5>
-		<h3> Les morts :</h3>
-		<h5> Les personnes filles/garçons/tabourets qui se trouvent éliminé(e)s par un imposteur doivent tomber par terre et faire le(la) mort jusqu'à la prochaine réunion ou la fin de la partie. </h5>
-		<h5> Elles ne peuvent donner AUCUNES informations aux autres joueurs qui découvrent le corps et faire AUCUNES actions suspectes qui acuserais celui qui les as tuer (comme par exemple lui dire que c'est un fdp devant tt le monde pendant le vote).</h5>
-		<h5> A la fin de la réunion, le ou les morts rejoindrons (ou pas) les autres morts dans une salle prévue à cet effet avec de quoi s'amuser et monter mon compte mario kart...</h5>
-		<h3> Les déplacements : </h3>
-		<h5> Les déplacements devront être effectués de manière honnête c'est à dire marcher normalement peu importe la situation et emprunter les conduis seulement si le rôle le permet.</h5>
-		<h5> Sans ça la partie ne peu pas se dérouler correctement donc tout le monde devra le faire même les impoteurs et les plus cons.</h5>
-		<h3> Les chronomètres : </h3>
-		<h5> Tout comme les déplacements les chronomètres devront être respectés et activés avant de faire l'action. Le bruit qui peu y être associé ne devra pas être camouflé par le joueur sous peine d'être concidéré comme de la triche. </h5>
-		<h3> Les insultes : </h3>
-		<h5> Pour ce qui est des insultes nous ne sommes pas des singes donc on insultes pas les mamans et les soeurs (Oui même celles de maxences) pour le reste on s'en fout en vrai tant que ce n'est pas pour tricher... </h5>
-		</div>
-		<script type="module">
-		  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-		  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
-
-		  const firebaseConfig = {
-			apiKey: "AIzaSyB5SveP0dDPE6gOJYGcATSJjJIkpVegBAI",
-			authDomain: "amongus-irl-ae832.firebaseapp.com",
-			databaseURL: "https://amongus-irl-ae832-default-rtdb.europe-west1.firebasedatabase.app/",
-			projectId: "amongus-irl-ae832",
-			storageBucket: "amongus-irl-ae832.firebasestorage.app",
-			messagingSenderId: "190130772923",
-			appId: "1:190130772923:web:5202db1cd62f775f77029e"
-			};
-
-			const app = initializeApp(firebaseConfig);
-			const database = getDatabase(app);
-			window.db = database; // optionnel, pour utiliser db dans Java.js
-		</script>
-		<script type="module" src="./Java.js"></script>
+		<a href="New Liste de partie.html" class="btn-rejoindre">Rejoindre une partie</a>
+		<a href="New Erreur.html" class="btn-créer">Créer une partie</a>
 	</body>
 </html>

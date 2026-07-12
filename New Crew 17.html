@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="New CSS Crew.css">
+		<title> Coéquipier n°17 </title>
+	</head>
+	<body>
+		<nav>
+			<ul>
+			<li> <a href="./New Crew 17.html"> Rôle </a> </li>
+			<li> <a href="./Map 17.html"> Map </a> </li>
+			<li> <a href="./New Pouvoir 17.html"> Pouvoirs </a> </li>
+			</ul>
+		</nav>
+		<div class="contenu">
+		<h6> Mafia / God Father :</h6>
+		<h5> Votre but est de saboter le vaisseau et d'éliminer les membres de l'équipage sans vous faire repérer. Trahissez, manipulez pour arriver à vos fins seul le résultat compte ! </h5>
+		<h5> Vous faites Partie de la mafia ainsi vous connaissez l'identité du Janitor et du Mafioso qui sont sous vos ordre ! </h5>
+		<h5> Particularité du rôle vous avez accès à un couteau et un pistolet pour tuer les membre de l'équipage. Etant le boss de votre organisation vous prenez les décisions mais gare aux mauvaises et pour cela laissez du libre arbitre à vos sbires quand même ! </h5>
+		<h3> Tes quêtes </h3>
+		<div id="checkboxes-container">
+			<label class="checkable">
+			<input type="checkbox" data-key="case106">
+			<p>Veranda / Faire 3 battle flip sur la table ronde</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case107">
+			<p>Salle de muscu / Faire 30 rep de l'exo de ton choix sur la machine</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case108">
+			<p>Cuisine / Coktail boire et deviner </p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case109">
+			<p>Allée 1 / Retrouve l'aguille dans la botte de foin</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case110">
+			<p>Cour / Enchaine dix Jongles avec la partie de ton corps au choix</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case111">
+			<p>Cellier / Résoudre le où est charlie</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case118">
+			<p>Salle de bain / Devinette</p>
+		</label><br>
+		</div>
+		<div id="progress-container" style="background:#555; width:100%; height:30px; border-radius:5px; margin-bottom:10px;">
+		  <div id="progress-bar" style="background:green; width:0%; height:100%; border-radius:5px; transition:width 0.5s;"></div>
+		</div>
+		<p id="progress-text" style="color:white; text-align:center; font-weight:bold;">0%</p>
+		<audio id="win-sound" src="Victoire.mp3" preload="auto"></audio>
+		<img src="Image/Bouton1.png" alt= "Bouton">
+		<button id="chrono62" style="margin:10px; padding:10px 20px; font-size:18px;">Seulement au salon</button>
+		<audio id="sound-62" src="Reunion1min.mp3" preload="auto"></audio>
+		<img src="Image/Corps.png" alt= "Corps">
+		<button id="chrono59" style="margin:10px; padding:10px 20px; font-size:18px;">Réunion</button>
+		<audio id="sound-59" src="Reunion1min.mp3" preload="auto"></audio>
+		<script type="module">
+		  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+		  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+		  const firebaseConfig = {
+			apiKey: "AIzaSyB5SveP0dDPE6gOJYGcATSJjJIkpVegBAI",
+			authDomain: "amongus-irl-ae832.firebaseapp.com",
+			databaseURL: "https://amongus-irl-ae832-default-rtdb.europe-west1.firebasedatabase.app/",
+			projectId: "amongus-irl-ae832",
+			storageBucket: "amongus-irl-ae832.firebasestorage.app",
+			messagingSenderId: "190130772923",
+			appId: "1:190130772923:web:5202db1cd62f775f77029e"
+			};
+
+			const app = initializeApp(firebaseConfig);
+			const database = getDatabase(app);
+			window.db = database; // optionnel, pour utiliser db dans Java.js
+		</script>
+		<script>
+			function setupChrono(buttonId, soundId, duration) {
+			const button = document.getElementById(buttonId);
+			const sound = document.getElementById(soundId);
+			let interval;
+
+			button.addEventListener("click", () => {
+				clearInterval(interval); // stoppe un éventuel ancien chrono
+				let timeLeft = duration;
+				button.disabled = true;
+				button.textContent = `${timeLeft}s`;
+				sound.currentTime = 0;
+				sound.play().catch(err => console.log("Autoplay bloqué :", err));
+
+				interval = setInterval(() => {
+				timeLeft--;
+				button.textContent = `${timeLeft}s`;
+				if (timeLeft <= 0) {
+					clearInterval(interval);
+					button.disabled = false;
+					button.textContent = `Chrono ${duration}s`;
+				}
+				}, 1000);
+			});
+			}
+
+			// ⚙️ Initialisation des deux chronos
+			setupChrono("chrono59", "sound-59", 59);
+			setupChrono("chrono62", "sound-62", 62);
+		</script>
+		<script type="module" src="./Java.js"></script>
+		</div>
+	</body>
+</html>

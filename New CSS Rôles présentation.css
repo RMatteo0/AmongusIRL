@@ -1,0 +1,32 @@
+body {
+  background-image: url("New/Fond rôles info 1.png");
+  background-size: cover;
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.btn-suite {
+	width: 10px;
+    height: 0px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 91%;
+    top: 94%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-suite:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}

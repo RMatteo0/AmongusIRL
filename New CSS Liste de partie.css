@@ -1,0 +1,55 @@
+body {
+  background-image: url("New/Fond d'acceuil PC.jpg");
+  background-size: cover;
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.btn-matteo {
+	width: 350px;
+    height: 45px;
+	
+	text-align: center;
+	
+    display: inline-block;
+    padding: 48px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 50%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-matteo:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-mael {
+	width: 350px;
+    height: 45px;
+	
+	text-align: center;
+	
+    display: inline-block;
+    padding: 48px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-mael:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}

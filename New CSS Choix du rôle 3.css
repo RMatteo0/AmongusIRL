@@ -1,0 +1,307 @@
+body {
+  background-image: url("New/Choix des rôles.png");
+  background-size: cover;
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.btn-crew1 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 20%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-crew1:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-crew2 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-crew2:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-crew3 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 80%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-crew3:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-crew4 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-crew4:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-crew5 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-crew5:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-crew6 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-crew6:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-impo1 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 20%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-impo1:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-impo2 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-impo2:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-impo3 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 80%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-impo3:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-ingé1 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 20%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-ingé1:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-ingé2 {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-ingé2:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}
+
+.btn-Autres {
+	width: 150px;
+    height: 10px;
+	
+	display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement */
+	
+    padding: 35px 96px;
+    background-color: #0078ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 40px;
+	position: absolute;
+    left: 80%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-Autres:hover {
+    background-color: #005fcc;
+	transform: translate(-50%, -50%) scale(1.1);
+}

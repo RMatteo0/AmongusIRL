@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="New CSS Crew.css">
+		<title> Coéquipier n°6 </title>
+	</head>
+	<body>
+		<nav>
+			<ul>
+			<li> <a href="./New Crew 6.html"> Rôle </a> </li>
+			<li> <a href="./Map 6.html"> Map </a> </li>
+			<li> <a href="./New Pouvoir 6.html"> Pouvoirs </a> </li>
+			</ul>
+		</nav>
+		<div class="contenu">
+		<h1> Coéquipier n°6 :</h1>
+		<h5> Réparez le vaisseau en réalisant vos tâches pour gagner la partie mais attention aux imposteurs qui essayerons de vous tuer ! Soyez attentifs ! </h5>
+		<h3> Tes quêtes </h3>
+		<div id="checkboxes-container">
+			<label class="checkable">
+			<input type="checkbox" data-key="case31">
+			<p>Chambre Mattéo / Refaire les paires de chaussettes</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case32">
+			<p>Table à manger / Exos de maths à faire à ma place</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case33">
+			<p>Garage extérieur / les fils</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case34">
+			<p>Grange / Empiler des buches pour faire un château</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case35">
+			<p>Pièce poker / Quête du poker</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case36">
+			<p>Entrée / Écoute la vidéo sans rigoler</p>
+		</label><br>
+		<label class="checkable">
+			<input type="checkbox" data-key="case37">
+			<p>Salle de jeux / Devinette</p>
+		</label><br>
+		</div>
+		<div id="progress-container" style="background:#555; width:100%; height:30px; border-radius:5px; margin-bottom:10px;">
+		  <div id="progress-bar" style="background:green; width:0%; height:100%; border-radius:5px; transition:width 0.5s;"></div>
+		</div>
+		<p id="progress-text" style="color:white; text-align:center; font-weight:bold;">0%</p>
+		<audio id="win-sound" src="Victoire.mp3" preload="auto"></audio>
+		<img src="Image/Bouton1.png" alt= "Bouton">
+		<button id="chrono62" style="margin:10px; padding:10px 20px; font-size:18px;">Seulement au salon</button>
+		<audio id="sound-62" src="Reunion1min.mp3" preload="auto"></audio>
+		<img src="Image/Corps.png" alt= "Corps">
+		<button id="chrono59" style="margin:10px; padding:10px 20px; font-size:18px;">Réunion</button>
+		<audio id="sound-59" src="Reunion1min.mp3" preload="auto"></audio>
+		<script type="module">
+		  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+		  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+		  const firebaseConfig = {
+			apiKey: "AIzaSyB5SveP0dDPE6gOJYGcATSJjJIkpVegBAI",
+			authDomain: "amongus-irl-ae832.firebaseapp.com",
+			databaseURL: "https://amongus-irl-ae832-default-rtdb.europe-west1.firebasedatabase.app/",
+			projectId: "amongus-irl-ae832",
+			storageBucket: "amongus-irl-ae832.firebasestorage.app",
+			messagingSenderId: "190130772923",
+			appId: "1:190130772923:web:5202db1cd62f775f77029e"
+			};
+
+			const app = initializeApp(firebaseConfig);
+			const database = getDatabase(app);
+			window.db = database; // optionnel, pour utiliser db dans Java.js
+		</script>
+		<script>
+			function setupChrono(buttonId, soundId, duration) {
+			const button = document.getElementById(buttonId);
+			const sound = document.getElementById(soundId);
+			let interval;
+
+			button.addEventListener("click", () => {
+				clearInterval(interval); // stoppe un éventuel ancien chrono
+				let timeLeft = duration;
+				button.disabled = true;
+				button.textContent = `${timeLeft}s`;
+				sound.currentTime = 0;
+				sound.play().catch(err => console.log("Autoplay bloqué :", err));
+
+				interval = setInterval(() => {
+				timeLeft--;
+				button.textContent = `${timeLeft}s`;
+				if (timeLeft <= 0) {
+					clearInterval(interval);
+					button.disabled = false;
+					button.textContent = `Chrono ${duration}s`;
+				}
+				}, 1000);
+			});
+			}
+
+			// ⚙️ Initialisation des deux chronos
+			setupChrono("chrono59", "sound-59", 59);
+			setupChrono("chrono62", "sound-62", 62);
+		</script>
+		<script type="module" src="./Java.js"></script>
+		</div>
+	</body>
+</html>

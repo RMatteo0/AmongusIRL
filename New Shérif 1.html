@@ -1,0 +1,107 @@
+!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="Css.css">
+		<title> Shérif </title>
+	</head>
+	<body>
+		<nav>
+			<ul>
+			<li> <a href="./index.html">Page d'acceuil</a> </li>
+			<li> <a href="./Crewmate_n°1.html">Crew1</a> </li>
+			<li> <a href="./Crewmate_n°2.html">Crew2</a> </li>
+			<li> <a href="./Crewmate_n°3.html">Crew3</a> </li>
+			<li> <a href="./Crewmate_n°4.html">Crew4</a> </li>
+			<li> <a href="./Crewmate_n°5.html">Crew5</a> </li>
+			<li> <a href="./Crewmate_n°6.html">Crew6</a> </li>
+			<li> <a href="./Ingineer_n°1.html">Ing1</a> </li>
+			<li> <a href="./Ingineer_n°2.html">Ing2</a> </li>
+			<li> <a href="./Impostor_n°1.html">Imp1</a>  </li>
+			<li> <a href="./Impostor_n°2.html">Imp2</a> </li>
+			<li> <a href="./Impostor_n°3.html">Imp3</a> </li>
+			<li> <a href="./Sherif.html">Shérif</a> </li>
+			</ul>
+		</nav>
+		<div class="contenu">
+		<h1> Shérif :</h1>
+		<h5> Ce rôle est une extention de votre rôle de base, vous pouvez donc consulter leurs deux pages respectives: En plus de pouvoir réaliser vos quêtes, il vous permet quand vous le voulez de tirez sur quelqu'un à l'aide du pistolet du shérif. </h5>
+		<h5> Vous pouvez alors demmander à la personne son rôle dans le cas ou elle est imposteur : elle meurt et dans le cas contraire vous mourrez tout les deux et le pistolet tombe à terre et peut être ramassé par un autre coéquipier.</h5>
+		<h5> Attention ! Seul les coéquipiers et les ingénieurs peuvent utiliser cette extention les imposteurs y sont interdits ! </h5>
+		<div id="progress-container" style="background:#555; width:100%; height:30px; border-radius:5px; margin-bottom:10px;">
+		  <div id="progress-bar" style="background:green; width:0%; height:100%; border-radius:5px; transition:width 0.5s;"></div>
+		</div>
+		<p id="progress-text" style="color:white; text-align:center; font-weight:bold;">0%</p>
+		<audio id="win-sound" src="Victoire.mp3" preload="auto"></audio>
+		<img src="Image/Etoile.png" alt= "Etoile">
+		<button id="chrono60" style="margin:10px; padding:10px 20px; font-size:18px;">Chrono 60s avant de pouvoir re tirer</button>
+		<audio id="sound-60" src="Revolver.mp3" preload="auto"></audio>
+		<br>
+		<img src="Image/Bouton1.png" alt= "Bouton">
+		<button id="chrono62" style="margin:10px; padding:10px 20px; font-size:18px;">Seulement au salon</button>
+		<audio id="sound-62" src="Reunion1min.mp3" preload="auto"></audio>
+		<img src="Image/Corps.png" alt= "Corps">
+		<button id="chrono59" style="margin:10px; padding:10px 20px; font-size:18px;">Réunion</button>
+		<audio id="sound-59" src="Reunion1min.mp3" preload="auto"></audio>
+		<h3> La Map : </h3>
+		<h5> Le rez de chaussée : </h5>
+		<img src="map/Rdc.png" alt= "Le rez de chaussée">
+		<h5> Le premier étage : </h5>
+		<img src="map/1er-étage3.png" alt= "Le premier étage">
+		<h5> Le grenier : </h5>
+		<img src="map/grenier4.png" alt= "Le grenier">
+		<h5> L'extérieur : </h5>
+		<img src="map/Dehors2.png" alt= "L'extérieur">
+		<script type="module">
+		  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+		  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+		  const firebaseConfig = {
+			apiKey: "AIzaSyB5SveP0dDPE6gOJYGcATSJjJIkpVegBAI",
+			authDomain: "amongus-irl-ae832.firebaseapp.com",
+			databaseURL: "https://amongus-irl-ae832-default-rtdb.europe-west1.firebasedatabase.app/",
+			projectId: "amongus-irl-ae832",
+			storageBucket: "amongus-irl-ae832.firebasestorage.app",
+			messagingSenderId: "190130772923",
+			appId: "1:190130772923:web:5202db1cd62f775f77029e"
+			};
+
+			const app = initializeApp(firebaseConfig);
+			const database = getDatabase(app);
+			window.db = database; // optionnel, pour utiliser db dans Java.js
+		</script>
+		<script>
+			function setupChrono(buttonId, soundId, duration) {
+			const button = document.getElementById(buttonId);
+			const sound = document.getElementById(soundId);
+			let interval;
+
+			button.addEventListener("click", () => {
+				clearInterval(interval); // stoppe un éventuel ancien chrono
+				let timeLeft = duration;
+				button.disabled = true;
+				button.textContent = `${timeLeft}s`;
+				sound.currentTime = 0;
+				sound.play().catch(err => console.log("Autoplay bloqué :", err));
+
+				interval = setInterval(() => {
+				timeLeft--;
+				button.textContent = `${timeLeft}s`;
+				if (timeLeft <= 0) {
+					clearInterval(interval);
+					button.disabled = false;
+					button.textContent = `Chrono ${duration}s`;
+				}
+				}, 1000);
+			});
+			}
+
+			// ⚙️ Initialisation des deux chronos
+			setupChrono("chrono59", "sound-59", 59);
+			setupChrono("chrono60", "sound-60", 60);
+			setupChrono("chrono62", "sound-62", 62);
+		</script>
+		<script type="module" src="./Java.js"></script>
+		</div>
+	</body>
+</html>

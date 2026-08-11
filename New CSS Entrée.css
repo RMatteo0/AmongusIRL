@@ -54,3 +54,22 @@ body {
 	transform: translate(-50%, -50%) scale(1.1);
 }
 
+@media screen and (max-width: 768px) {
+
+body {
+  background-image: url("New/Tel entrée 2.jpg");
+  background-size: cover;
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+	
+body {
+  background-image: url("New/index mobile.PNG");
+  background-size: cover;
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
